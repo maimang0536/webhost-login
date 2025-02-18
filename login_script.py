@@ -38,7 +38,7 @@ def attempt_login(page, email: str, password: str) -> Tuple[bool, str]:
     try:
         # 导航到登录页面
         page.goto("https://client.webhostmost.com/login")
-        time.sleep(5)
+        time.sleep(15)
         # 填写登录表单
         page.get_by_placeholder("Enter email").click()
         page.get_by_placeholder("Enter email").fill(email)
@@ -47,7 +47,7 @@ def attempt_login(page, email: str, password: str) -> Tuple[bool, str]:
         
         # 提交登录表单
         page.get_by_role("button", name="Login").click()
-        time.sleep(10)
+        time.sleep(30)
         # 检查错误消息
         try:
             error_message = page.wait_for_selector('.MuiAlert-message', timeout=5000)
